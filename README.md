@@ -7,23 +7,48 @@ Git-submodules сборник всех внешних плагинов для **
 со своей историей и версионированием. Этот super-repo собирает их
 в один корневой путь, который Hermes монтирует одним bind-mount'ом.
 
+## Структура (категориальная — 1:1 с `/opt/data/plugins/` в контейнере)
+
+```
+hermes-plugins-collection/
+├── aegis-attestation/             ← плагин корневой категории
+├── assistant-prompt-overlay/
+├── chief-tools/
+├── desire-to-goal-driver/
+├── github-native-tools/
+├── hindsight-sanitize/
+├── mc-tools/
+├── workflow-tools/
+├── engines/
+│   └── workflow-engine/
+└── model-providers/
+    ├── ai-gateway/
+    ├── anthropic_custom/          ← подчёркивание в пути (требование Hermes scanner)
+    ├── claude-agent-sdk/
+    ├── claude-via-meridian/
+    └── openrouter_custom/         ← подчёркивание в пути
+```
+
+Bind-mount всего корня даёт Hermes готовое плагинное дерево —
+**ОДИН** mount вместо 14.
+
 ## Список плагинов
 
 | Submodule path | Назначение | Repo |
 |---|---|---|
 | `aegis-attestation` | Tier-A детерминированный QA-attestation kanban deliverable с hybrid hook+cron | [hermes-plugin-aegis-attestation](https://github.com/nnnet/hermes-plugin-aegis-attestation) |
-| `ai-gateway` | Vercel AI Gateway model-provider | [hermes-plugin-ai-gateway](https://github.com/nnnet/hermes-plugin-ai-gateway) |
-| `anthropic-custom` | Anthropic Messages protocol с кастомным base_url (CLR Gateway по умолчанию) | [hermes-plugin-anthropic-custom](https://github.com/nnnet/hermes-plugin-anthropic-custom) |
 | `assistant-prompt-overlay` | Patch системного промпта для роли Гермес | [hermes-plugin-assistant-prompt-overlay](https://github.com/nnnet/hermes-plugin-assistant-prompt-overlay) |
 | `chief-tools` | Динамические тулзы для chief sub-agent lifecycle | [hermes-plugin-chief-tools](https://github.com/nnnet/hermes-plugin-chief-tools) |
-| `claude-agent-sdk` | Claude через официальный Anthropic Agent SDK (хост-подписка) | [hermes-plugin-claude-agent-sdk](https://github.com/nnnet/hermes-plugin-claude-agent-sdk) |
-| `claude-via-meridian` | Claude через хостовый Meridian-proxy | [hermes-plugin-claude-via-meridian](https://github.com/nnnet/hermes-plugin-claude-via-meridian) |
 | `desire-to-goal-driver` | pre_llm_call плагин для desire-to-goal workflow | [hermes-plugin-desire-to-goal-driver](https://github.com/nnnet/hermes-plugin-desire-to-goal-driver) |
+| `engines/workflow-engine` | Generic state-machine для многошаговых agent workflows | [hermes-plugin-workflow-engine](https://github.com/nnnet/hermes-plugin-workflow-engine) |
 | `github-native-tools` | Тулзы GitHub repo (list/view/delete/create) с внутренней аутентификацией | [hermes-plugin-github-native-tools](https://github.com/nnnet/hermes-plugin-github-native-tools) |
 | `hindsight-sanitize` | Очистка мультимодальных blob'ов из Hindsight retain | [hermes-plugin-hindsight-sanitize](https://github.com/nnnet/hermes-plugin-hindsight-sanitize) |
 | `mc-tools` | Mission Control integration primitives | [hermes-plugin-mc-tools](https://github.com/nnnet/hermes-plugin-mc-tools) |
-| `openrouter-custom` | OpenRouter live-filter + stable pseudo-model alias | [hermes-plugin-openrouter-custom](https://github.com/nnnet/hermes-plugin-openrouter-custom) |
-| `workflow-engine` | Generic state-machine для многошаговых agent workflows | [hermes-plugin-workflow-engine](https://github.com/nnnet/hermes-plugin-workflow-engine) |
+| `model-providers/ai-gateway` | Vercel AI Gateway model-provider | [hermes-plugin-ai-gateway](https://github.com/nnnet/hermes-plugin-ai-gateway) |
+| `model-providers/anthropic_custom` | Anthropic Messages protocol с кастомным base_url (CLR Gateway по умолчанию) | [hermes-plugin-anthropic-custom](https://github.com/nnnet/hermes-plugin-anthropic-custom) |
+| `model-providers/claude-agent-sdk` | Claude через официальный Anthropic Agent SDK (хост-подписка) | [hermes-plugin-claude-agent-sdk](https://github.com/nnnet/hermes-plugin-claude-agent-sdk) |
+| `model-providers/claude-via-meridian` | Claude через хостовый Meridian-proxy | [hermes-plugin-claude-via-meridian](https://github.com/nnnet/hermes-plugin-claude-via-meridian) |
+| `model-providers/openrouter_custom` | OpenRouter live-filter + stable pseudo-model alias | [hermes-plugin-openrouter-custom](https://github.com/nnnet/hermes-plugin-openrouter-custom) |
 | `workflow-tools` | Backend-agnostic workflow orchestration tools | [hermes-plugin-workflow-tools](https://github.com/nnnet/hermes-plugin-workflow-tools) |
 
 ## Использование (Hermes integration)
@@ -47,16 +72,14 @@ git submodule update --remote --merge
 
 ```yaml
 volumes:
-  - ${EXTERNAL_PLUGINS_DIR}:/opt/hermes/external-plugins:ro
+  - ../../sources/hermes-plugins-collection:/opt/data/plugins:ro
+  # workflow-engine ещё и как subprocess engine:
+  - ../../sources/hermes-plugins-collection/engines/workflow-engine:/opt/workflow-engine:ro
 ```
 
-где `EXTERNAL_PLUGINS_DIR` указывает на корень склонированного
-super-repo. Каждый submodule доступен по
-`/opt/hermes/external-plugins/<plugin-name>/`.
-
 Плагины регистрируются автоматически через
-`config.yaml > plugins.enabled` — Hermes ищет их в discovery roots
-(включая `/opt/hermes/external-plugins/`).
+`config.yaml > plugins.enabled` — Hermes scanner находит их в
+`/opt/data/plugins/<category>/<name>/`.
 
 ### Добавление нового плагина
 

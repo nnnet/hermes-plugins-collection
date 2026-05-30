@@ -1,24 +1,30 @@
+[submodule "engines/workflow-engine"]
+	path = engines/workflow-engine
+	url = git@github.com:nnnet/hermes-plugin-workflow-engine.git
+[submodule "model-providers/ai-gateway"]
+	path = model-providers/ai-gateway
+	url = git@github.com:nnnet/hermes-plugin-ai-gateway.git
+[submodule "model-providers/anthropic_custom"]
+	path = model-providers/anthropic_custom
+	url = git@github.com:nnnet/hermes-plugin-anthropic-custom.git
+[submodule "model-providers/claude-agent-sdk"]
+	path = model-providers/claude-agent-sdk
+	url = git@github.com:nnnet/hermes-plugin-claude-agent-sdk.git
+[submodule "model-providers/claude-via-meridian"]
+	path = model-providers/claude-via-meridian
+	url = git@github.com:nnnet/hermes-plugin-claude-via-meridian.git
+[submodule "model-providers/openrouter_custom"]
+	path = model-providers/openrouter_custom
+	url = git@github.com:nnnet/hermes-plugin-openrouter-custom.git
 [submodule "aegis-attestation"]
 	path = aegis-attestation
 	url = git@github.com:nnnet/hermes-plugin-aegis-attestation.git
-[submodule "ai-gateway"]
-	path = ai-gateway
-	url = git@github.com:nnnet/hermes-plugin-ai-gateway.git
-[submodule "anthropic-custom"]
-	path = anthropic-custom
-	url = git@github.com:nnnet/hermes-plugin-anthropic-custom.git
 [submodule "assistant-prompt-overlay"]
 	path = assistant-prompt-overlay
 	url = git@github.com:nnnet/hermes-plugin-assistant-prompt-overlay.git
 [submodule "chief-tools"]
 	path = chief-tools
 	url = git@github.com:nnnet/hermes-plugin-chief-tools.git
-[submodule "claude-agent-sdk"]
-	path = claude-agent-sdk
-	url = git@github.com:nnnet/hermes-plugin-claude-agent-sdk.git
-[submodule "claude-via-meridian"]
-	path = claude-via-meridian
-	url = git@github.com:nnnet/hermes-plugin-claude-via-meridian.git
 [submodule "desire-to-goal-driver"]
 	path = desire-to-goal-driver
 	url = git@github.com:nnnet/hermes-plugin-desire-to-goal-driver.git
@@ -31,12 +37,6 @@
 [submodule "mc-tools"]
 	path = mc-tools
 	url = git@github.com:nnnet/hermes-plugin-mc-tools.git
-[submodule "openrouter-custom"]
-	path = openrouter-custom
-	url = git@github.com:nnnet/hermes-plugin-openrouter-custom.git
-[submodule "workflow-engine"]
-	path = workflow-engine
-	url = git@github.com:nnnet/hermes-plugin-workflow-engine.git
 [submodule "workflow-tools"]
 	path = workflow-tools
 	url = git@github.com:nnnet/hermes-plugin-workflow-tools.git
