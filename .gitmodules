@@ -1,9 +1,6 @@
 [submodule "engines/workflow-engine"]
 	path = engines/workflow-engine
 	url = git@github.com:nnnet/hermes-plugin-workflow-engine.git
-[submodule "model-providers/ai-gateway"]
-	path = model-providers/ai-gateway
-	url = git@github.com:nnnet/hermes-plugin-ai-gateway.git
 [submodule "model-providers/anthropic_custom"]
 	path = model-providers/anthropic_custom
 	url = git@github.com:nnnet/hermes-plugin-anthropic-custom.git
