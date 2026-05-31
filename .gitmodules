@@ -37,3 +37,6 @@
 [submodule "workflow-tools"]
 	path = workflow-tools
 	url = git@github.com:nnnet/hermes-plugin-workflow-tools.git
+[submodule "hindsight-board-setup"]
+	path = hindsight-board-setup
+	url = git@github.com:nnnet/hermes-plugin-hindsight-board-setup.git
