@@ -40,3 +40,6 @@
 [submodule "hindsight-board-setup"]
 	path = hindsight-board-setup
 	url = git@github.com:nnnet/hermes-plugin-hindsight-board-setup.git
+[submodule "run-profile-endpoint"]
+	path = run-profile-endpoint
+	url = git@github.com:nnnet/hermes-plugin-run-profile-endpoint.git
