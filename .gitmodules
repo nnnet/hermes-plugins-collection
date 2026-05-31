@@ -43,3 +43,6 @@
 [submodule "run-profile-endpoint"]
 	path = run-profile-endpoint
 	url = git@github.com:nnnet/hermes-plugin-run-profile-endpoint.git
+[submodule "dashboard-updater"]
+	path = dashboard-updater
+	url = git@github.com:nnnet/hermes-plugin-dashboard-updater.git
