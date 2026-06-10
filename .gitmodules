@@ -46,3 +46,6 @@
 [submodule "dashboard-updater"]
 	path = dashboard-updater
 	url = git@github.com:nnnet/hermes-plugin-dashboard-updater.git
+[submodule "spec-flow"]
+	path = spec-flow
+	url = git@github.com:nnnet/hermes-plugin-spec-flow.git

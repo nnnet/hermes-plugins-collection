@@ -18,6 +18,7 @@ hermes-plugins-collection/
 ├── github-native-tools/
 ├── hindsight-sanitize/
 ├── mc-tools/
+├── spec-flow/
 ├── workflow-tools/
 ├── engines/
 │   └── workflow-engine/
@@ -44,6 +45,7 @@ Bind-mount всего корня даёт Hermes готовое плагинно
 | `github-native-tools` | Тулзы GitHub repo (list/view/delete/create) с внутренней аутентификацией | [hermes-plugin-github-native-tools](https://github.com/nnnet/hermes-plugin-github-native-tools) |
 | `hindsight-sanitize` | Очистка мультимодальных blob'ов из Hindsight retain | [hermes-plugin-hindsight-sanitize](https://github.com/nnnet/hermes-plugin-hindsight-sanitize) |
 | `mc-tools` | Mission Control integration primitives | [hermes-plugin-mc-tools](https://github.com/nnnet/hermes-plugin-mc-tools) |
+| `spec-flow` | Spec-Driven Development на Kanban-доске: рекурсивная top-down декомпозиция, гейты, контракты L2, drift-detection, research-линия | [hermes-plugin-spec-flow](https://github.com/nnnet/hermes-plugin-spec-flow) |
 | `model-providers/ai-gateway` | Vercel AI Gateway model-provider | [hermes-plugin-ai-gateway](https://github.com/nnnet/hermes-plugin-ai-gateway) |
 | `model-providers/anthropic_custom` | Anthropic Messages protocol с кастомным base_url (CLR Gateway по умолчанию) | [hermes-plugin-anthropic-custom](https://github.com/nnnet/hermes-plugin-anthropic-custom) |
 | `model-providers/claude-agent-sdk` | Claude через официальный Anthropic Agent SDK (хост-подписка) | [hermes-plugin-claude-agent-sdk](https://github.com/nnnet/hermes-plugin-claude-agent-sdk) |
