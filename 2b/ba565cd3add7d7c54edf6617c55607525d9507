@@ -1,0 +1,25 @@
+voice-tts-sanitizer/test_sanitizer.py
+  s_1b99a7ec9e9aa9::t_2d4da2f4c0d58c 1-87
+voice-tts-sanitizer/__init__.py
+  s_1b99a7ec9e9aa9::t_7fe2d3968651a0 93
+  s_1b99a7ec9e9aa9::t_eafc32c023b7b6 1-57,62-92,94-160
+  s_1b99a7ec9e9aa9::t_d31aa881efe9fa 58-61
+voice-tts-sanitizer/plugin.yaml
+  s_1b99a7ec9e9aa9::t_1136ba29d3bbff 1-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "2bba565cd3add7d7c54edf6617c55607525d9507",
+  "prompts": {},
+  "sessions": {
+    "s_1b99a7ec9e9aa9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5025e0d8-1d1b-4f97-8c52-eec971a58fbd",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "nnnet <zkowkmdx@sharklasers.com>"
+    }
+  }
+}
