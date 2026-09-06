@@ -1,0 +1,19 @@
+.gitmodules
+  s_7a7f7ab24f3a35::t_6a12ebee5e9109 3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "66ec57715d2e9b225df4fd2a8fbf865350c521f2",
+  "prompts": {},
+  "sessions": {
+    "s_7a7f7ab24f3a35": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0f51faf1-1ebe-45f3-a00b-afcca82cd889",
+        "model": "OpenRouter/minimax/minimax-m3:free"
+      },
+      "human_author": "nnnet <21066097+nnnet@users.noreply.github.com>"
+    }
+  }
+}
