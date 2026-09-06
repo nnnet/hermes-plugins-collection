@@ -49,3 +49,6 @@
 [submodule "spec-flow"]
 	path = spec-flow
 	url = https://github.com/nnnet/hermes-plugin-spec-flow.git
+[submodule "model-providers/ai-gateway"]
+	path = model-providers/ai-gateway
+	url = https://github.com/nnnet/hermes-plugin-ai-gateway.git
